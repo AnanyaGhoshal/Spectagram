@@ -7,6 +7,7 @@ import {
 } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { RFValue } from "react-native-responsive-fontsize";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 export default class PostCard extends Component {
     constructor(props) {
@@ -18,6 +19,15 @@ export default class PostCard extends Component {
 
     render() {
         return (
+            <TouchableOpacity
+            style={styles.container}
+          onPress={() =>
+            this.props.navigation.navigate("Postscreen", {
+              post: this.props.post
+            })
+          }
+            
+            >
             <View style={styles.container}>
                 <View style={styles.cardContainer}>
                     <View style={styles.authorContainer}>
@@ -45,6 +55,7 @@ export default class PostCard extends Component {
                     </View>
                 </View>
             </View>
+            </TouchableOpacity>
         );
     }
 }
